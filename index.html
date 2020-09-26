@@ -4,30 +4,45 @@
     <meta charset="utf-8">
     <title>Hello, WebVR! • A-Frame</title>
     <meta name="description" content="Hello, WebVR! • A-Frame">
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script>
     </script>
+
   </head>
   <body>
-    <a-scene background="color: #FAFAFA" 
+    <a-scene  fog="type: linear; color: #bbddd2; far: 500; near: 0; density: 0.00025"
     renderer = "antialias: auto;
     colorManagement: true;
     depthTest: true;">
-      <a-sky color = "#b3e0ff"></a-sky>
-      <a-entity light="type: hemisphere; color: #FFF intensity: 3.5"></a-entity>
+      <!--lighting-->
+      <a-sky color="#79a1d2"></a-sky>
+      <a-light type= "ambient" color= "yellow" intensity="0.3"></a-light>
+      <a-light type= "ambient" color="#76bca5" intensity="1.7"></a-light>
+      <a-light type= "ambient" color= "red" intensity= "0.5"></a-light>
+
+      <a-light type= "point" color="#FFF" intensity="1.2" target=""></a-light>
+      <!--end lighting-->
       
-      <a-assets>
-        <img id="ground" blending="none"  src="Assets/Textures/Ground.png">
-      </a-assets>
+      
+      <!--geometry-->
+      <a-plane shade="flat" color="#438972" height="100" width="100" rotation="-90 0 0 " repeat="30  30" ></a-plane> 
+      <!--end geometry-->
 
-
-      <a-plane src="#ground" height="100" width="100" rotation="-90 0 0 " repeat="200 200" ></a-plane> //need to repeat 
-
-      //models 
-      //Murry Hall
+      <!--//models -->
       <a-gltf-model position = "-20 0 0" src="Assets/Murry_Hall.gltf" scale="0.1 0.1 0.1"> </a-gltf-model>
-      <a-gltf-model position = "-15 0 0" src="Assets/stone_circle.gltf" scale="0.1 0.1 0.1"></a-gltf-model>
-      <a-gltf-model position = "-15 0 0" src= "Assets/stone_seats.gltf" scale="0.1 0.1 0.1"></a-gltf-model>
-      <a-gltf-model position = "-19 0 0" src = "Assets/Horse_Center.gltf" scale="0.15 0.15 0.15"></a-gltf-model>
+      <a-gltf-model position = "-15 0 0" src="Assets/stone_circle.gltf" scale="0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model position = "-15 0 0" src= "Assets/stone_seats.gltf" scale="0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model position = "-19 -0.5 0" src = "Assets/Horse_Center.gltf" scale="0.25 0.25 0.25"></a-gltf-model>
+      <a-gltf-model position = "1 0 8" src = "Assets/Grass.gltf" scale = "0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model position = "1 0 -8" src = "Assets/Grass.gltf" scale = "0.2 0.2 0.2"></a-gltf-model>
+      <!--end models-->
+
+
+      <!--camera and movement-->
+      <a-entity id="rig" position="20 1.6 0" rotation="0 90 0">
+        <a-entity id="camera" camera look-controls wasd-controls></a-entity>
+      </a-entity>
+      <!--end camera and movement-->
     </a-scene>
   </body>
 </html>

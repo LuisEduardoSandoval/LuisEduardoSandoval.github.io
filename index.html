@@ -10,39 +10,81 @@
 
   </head>
   <body>
-    <a-scene  fog="type: linear; color: #bbddd2; far: 500; near: 0; density: 0.00025"
+    <script>
+      AFRAME.registerComponeten('log', {
+        schema:{type: 'string'},
+
+        init: function()
+        {
+          var stringToLog =this.data;
+          console.log(stringToLog);
+        }
+      });
+      </script>
+
+
+    <a-scene
     renderer = "antialias: auto;
     colorManagement: true;
-    depthTest: true;">
-      <!--lighting-->
-      <a-sky color="#79a1d2"></a-sky>
-      <a-light type= "ambient" color= "yellow" intensity="0.3"></a-light>
-      <a-light type= "ambient" color="#76bca5" intensity="1.7"></a-light>
-      <a-light type= "ambient" color= "red" intensity= "0.5"></a-light>
+    depthTest: true;"
+    fog="type: linear; color: #3a895a; near: 1; far: 600">
+    <!--textures-->
+    <a-assets>
+      <img id= "sky" src="Assets/Textures/sky.png">
+    </a-assets>
 
-      <a-light type= "point" color="#FFF" intensity="1.2" target=""></a-light>
+
+
+
+
+      <!--lighting-->
+      <a-sky color="#6faec3"></a-sky>
+      <a-light type="hemisphere" color="#3a895a" intensity="2.2" decay= "1"></a-light>
+
+      <a-light type= "point" color="#FFF" intensity="1.5" target=""></a-light>
       <!--end lighting-->
       
       
       <!--geometry-->
-      <a-plane shade="flat" color="#438972" height="100" width="100" rotation="-90 0 0 " repeat="30  30" ></a-plane> 
+      <!--<a-plane shade="flat" color="#534626" height="100" width="100" rotation="-90 0 0 " repeat="30  30" displacement-map="#displacement" displacement-bias="0" displacement-scale="60" segments-height="20" segments-width="20"></a-plane>-->
+  
       <!--end geometry-->
 
       <!--//models -->
-      <a-gltf-model position = "-20 0 0" src="Assets/Murry_Hall.gltf" scale="0.1 0.1 0.1"> </a-gltf-model>
+      <a-gltf-model position = "-18 0 0" src="Assets/Murry_Hall.glb" scale="0.13 0.13 0.13"> </a-gltf-model>
       <a-gltf-model position = "-15 0 0" src="Assets/stone_circle.gltf" scale="0.2 0.2 0.2"></a-gltf-model>
       <a-gltf-model position = "-15 0 0" src= "Assets/stone_seats.gltf" scale="0.2 0.2 0.2"></a-gltf-model>
       <a-gltf-model position = "-19 -0.5 0" src = "Assets/Horse_Center.gltf" scale="0.25 0.25 0.25"></a-gltf-model>
-      <a-gltf-model position = "1 0 8" src = "Assets/Grass.gltf" scale = "0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model position = "1 0 -8" src = "Assets/Grass.gltf" scale = "0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model position = "-15 0 -0.35" src= "Assets/path_main.glb" scale = "0.2 0.2 0.2"></a-gltf-model>
+
       <!--end models-->
 
+      <!--entity's-->
+      <!--<a-entity gltf-model="Assets/Plane.glb" position ="-25 0.03 0" scale ="0.12 0.12 0.12" physicallyCorrectLights="false"> </a-entity>-->
+
+      <a-entity geometry="primitive: plane; height: 10; width: 10; segmentsWidth: 5; segmentsHeight: 5; " material="side: double; color: #534626" rotation="-90 0 0" scale="15 15 15" ></a-entity>
+
+      <a-entity  gltf-model="Assets/Grass2.glb" position=" 10 0 7.5" physicallyCorrectLights="false" scale="0.6 0.6 0.6"></a-entity>
+      <a-entity  gltf-model="Assets/Grass2.glb" position=" 10 0 -8.2" physicallyCorrectLights="false" scale="0.6 0.6 0.6"></a-entity>
 
       <!--camera and movement-->
       <a-entity id="rig" position="20 1.6 0" rotation="0 90 0">
         <a-entity id="camera" camera look-controls wasd-controls></a-entity>
       </a-entity>
       <!--end camera and movement-->
+
+
+
+
+
+
+
+
+
+      <!--Scripts-->
+
+
+
     </a-scene>
   </body>
 </html>

@@ -39,7 +39,9 @@
 
       <!--lighting-->
       <a-sky color="#6faec3"></a-sky>
-      <a-light type="hemisphere" color="#3a895a" intensity="2.2" decay= "1"></a-light>
+      <a-light type="hemisphere" color="#3a895a" intensity="0.3" decay= "1" ground-color="#4f5f35"></a-light>
+      <a-light type="hemisphere" color="#3a895a" intensity="1.9" decay= "1" ></a-light>
+      
 
       <a-light type= "point" color="#FFF" intensity="1.5" target=""></a-light>
       <!--end lighting-->
@@ -62,7 +64,7 @@
       <!--entity's-->
       <!--<a-entity gltf-model="Assets/Plane.glb" position ="-25 0.03 0" scale ="0.12 0.12 0.12" physicallyCorrectLights="false"> </a-entity>-->
 
-      <a-entity geometry="primitive: plane; height: 10; width: 10; segmentsWidth: 5; segmentsHeight: 5; " material="side: double; color: #534626" rotation="-90 0 0" scale="15 15 15" ></a-entity>
+      <a-entity geometry="primitive: plane; height: 10; width: 10; segmentsWidth: 5; segmentsHeight: 5; " material="side: double; color: #4f5f35" rotation="-90 0 0" scale="15 15 15" ></a-entity>
 
       <a-entity  gltf-model="Assets/Grass2.glb" position=" 10 0 7.5" physicallyCorrectLights="false" scale="0.6 0.6 0.6"></a-entity>
       <a-entity  gltf-model="Assets/Grass2.glb" position=" 10 0 -8.2" physicallyCorrectLights="false" scale="0.6 0.6 0.6"></a-entity>

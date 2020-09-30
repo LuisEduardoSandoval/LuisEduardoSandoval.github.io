@@ -10,7 +10,7 @@ AFRAME.registerComponent('day-night',{
       var data = this.data;
       var el = this.el;
       var boxel= document.querySelector('#box');
-      let sound =document.querySelector('#ring');
+      let sound2 =document.querySelector('#ring');
       var clicks = 0;
 
 
@@ -26,7 +26,7 @@ AFRAME.registerComponent('day-night',{
         {
           el.setAttribute('environment',{lightPosition: '-10  -10 -10.2'});
           boxel.setAttribute('color', 'red');
-          sound.components.sound.playSound();
+          sound2.components.sound.playSound();
           clicks+=1;
           
         }
@@ -34,7 +34,7 @@ AFRAME.registerComponent('day-night',{
         {
           el.setAttribute('environment',{lightPosition: '0  -1 0.2'});
           boxel.setAttribute('color', 'green');
-          sound.components.sound.playSound();
+          sound2.components.sound.playSound();
           clicks+=1;
         }
 

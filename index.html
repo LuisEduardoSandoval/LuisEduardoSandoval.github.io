@@ -13,7 +13,8 @@
     <script src="https://cdn.jsdelivr.net/gh/supermedium/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 
 
-
+    <!--mobile script for movment-->
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
 
 
     <!--path script-->
@@ -347,19 +348,13 @@
 
       <!--camera and movement-->
       <a-entity id="rig" position="10 1.6 0" rotation="0 90 0">
-        <a-entity id="camera" camera look-controls wasd-controls>
+        <a-entity id="camera" camera look-controls wasd-controls camera twoway-motion="nonMobileLoad: 35"
+        cursor="fuse: true; fuseTimeout: 500"
+        >
 
+        <a-cursor>
 
-
-          <a-entity position="0 0 -1"
-          geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.07w;"
-          material="color: black; shader: flat"
-          cursor="maxDistance: 30; fuse: true">
-  <a-animation begin="click" easing="ease-in" attribute="scale"
-       fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
-  <a-animation begin="fusing" easing="ease-in" attribute="scale"
-       fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
-</a-entity>
+        </a-cursor>
 
 
 

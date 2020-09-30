@@ -347,12 +347,20 @@
 
 
       <!--camera and movement-->
-      <a-entity id="rig" position="10 1.6 0" rotation="0 90 0">
-        <a-entity id="camera" camera look-controls wasd-controls camera twoway-motion="nonMobileLoad: 35"
-        cursor="fuse: true; fuseTimeout: 500"
+      <a-entity id="rig" position="7 1.6 0" rotation="0 90 0">
+        <a-entity id="camera" 
+        teleport-controls
+        camera twoway-motion="nonMobileLoad: false"
+        camera look-controls wasd-controls camera 
+        cursor="fuse: true;"
+        cursor="fuseTimeout: 300"
+
+
         >
 
         <a-cursor>
+          
+
 
         </a-cursor>
 

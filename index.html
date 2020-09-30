@@ -26,6 +26,8 @@
     <!--Event handler Script-->
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 
+    <!--Physics script-->
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
 
 
 
@@ -100,22 +102,28 @@
     
     inspector="url: https://rawgit.com/aframevr/aframe-inspector/master/dist/aframe-inspector.min.js"
     vr-mode-ui="enabled: true"
-    renderer = "antialias: true; colorManagement: true; depthTest: true;"
+    renderer = "antialias: auto; colorManagement: true; depthTest: true;"
+    shadow="type: pcf"
     >
 
-
+    <a-assets>
+      <img id="ball" src="https://images.designtrends.com/wp-content/uploads/2016/09/17145735/Soccer-ball-Texture1.jpg">
+    </a-assets>
 
 
 
     <a-entity
-              position="0 -0.8 0"
+              position="0 0 0"
               environment=
               "preset: forest;
               lighting: distant;
               skyType: gradient;
               sunPosition: 1 1 -3;
               skyColor: #6faec3;
-              groundYScale: 3;"
+              groundYScale: 2;
+              shadow: cast: true;
+              Shadowsize: 10"
+
               id="environment"
               covidmode
               day-night
@@ -126,19 +134,66 @@
 
 
 
-
     </a-entity>
 
+    <a-sphere id = ball
+              position = "7 0.7 -0.1"
+              src="#ball"
+              geometry="radius: 0.25; src: #ball;"
+              axis=" 1 1 1"
+              angularDamping ="0.2"
+              dynamic-body
+    ></a-sphere>
+
+
+    <a-plane
+      id="plane"
+      color='red'
+      rotation="-90 0 0"
+      width="100" height="100"
+      static-body
+      visible="false">
+      
+
+    </a-plane>
     <a-box
     id = "box";
-    position="20 1 -3" rotation="0 0 0" color="#EF2D5E"
+    position="5.3 1.3 -0.5" rotation="0 0 55" color="#EF2D5E"
+    scale="0.3 0.3 0.3"
     >
+    <a-text
+    id= "lighting text"
+    value="look at box to change lighting"
+    align="center"
+    
+    visible="true"
+    position="0.523 1.36 -0.9"
+    rotation="55 90 0"
+    geometry="primitive: plane; width: 3"
+    material="color: #333">
+
+</a-text>
+
+
     </a-box>
 
     <a-box
     id = "CovidBox";
-    position="20 1 0" rotation="0 0 0" color="#EF2D5E"
+    position="5.3 1.3 0.3" rotation="0 0 55" color="#EF2D5E"
+    scale="0.3 0.3 0.3"
     >
+    <a-text
+          id= "covidText"
+          value="look at box for covid mode"
+          align="center"
+          color="#FFF"
+          visible="true"
+          position="0.523 1.36 0.9"
+          rotation="55 90 0"
+          geometry="primitive: plane; width: 3"
+          material="color: #333">
+
+    </a-text>
     </a-box>
 
 
@@ -159,7 +214,8 @@
 
 
 
-    
+
+  
 
 
 
@@ -171,10 +227,10 @@
 
 
     <!--//models -->
-      <a-gltf-model position = "-15 0 0" src="Assets/stone_circle.gltf" scale="0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model position = "-15 0 0" src= "Assets/stone_seats.gltf" scale="0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model position = "-19 -0.5 0" src = "Assets/Horse_Center.gltf" scale="0.25 0.25 0.25"></a-gltf-model>
-      <a-gltf-model position = "-15 0 -0.35" src= "Assets/path.glb" scale = "0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model position = "-15 0 0" src="Assets/stone_circle.gltf" scale="0.2 0.2 0.2" shadow="receive: true"></a-gltf-model>
+      <a-gltf-model position = "-15 0 0" src= "Assets/stone_seats.gltf" scale="0.2 0.2 0.2" shadow="receive: true"></a-gltf-model>
+      <a-gltf-model position = "-19 -0.5 0" src = "Assets/Horse_Center.gltf" scale="0.25 0.25 0.25" shadow="receive: true"></a-gltf-model>
+      <a-gltf-model position = "-15 0 -0.35" src= "Assets/pathWalk.glb" scale = "0.2 0.2 0.2" shadow="receive: true"></a-gltf-model>
       <!--end models-->
 
 
@@ -183,7 +239,8 @@
                 position= "-18 -0.5 0" 
                 gltf-model="Assets/Murry_Hall.glb" 
                 scale="0.15 0.15 0.15"
-                shadow="true" >
+                shadow="receive: true"
+                shadow="cast: true">
       </a-entity>
       
       <a-entity id="grass_patch" 
@@ -195,16 +252,72 @@
 
       
       
-                <!--spawn curve-->
+    <!--spawn curve-->
     <a-curve id="track1">
         <a-curve-point position="25 0 0" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
         <a-curve-point position="0 0 -9" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
         <a-curve-point position="-20 0 0" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
     </a-curve>
               
-    <a-entity id="human" gltf-model="Assets/Man.glb" scale="0.15 0.15 0.15" rotation="0 -180 0"
-      alongpath="curve: #track1; loop:true; dur:22000; rotate:false;"
+    <a-entity id="human" gltf-model="Assets/Man.glb" scale="0.25 0.25 0.25" rotation="0 90 0" shadow="cast: true"
+      animation-mixer
+      alongpath="curve: #track1; loop:true; dur:45000; rotate:false;"
     >
+  </a-entity>
+
+      <!--reverse curve-->
+      <a-curve id="track2">
+        <a-curve-point position="-20 0 0" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="0 0 9" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="25 0 0" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+      </a-curve>
+
+      <a-entity id="human1" gltf-model="Assets/Man.glb" scale="0.25 0.25 0.25" rotation="0 270 0"shadow="cast: true"
+      animation-mixer
+      alongpath="curve: #track2; loop:true; dur:45000; rotate:false;"
+    >
+  </a-entity>
+
+
+    <a-entity id="podium"
+              gltf-model="Assets/Podium.gltf"
+              position="5 -0.5 -0.1"
+              scale="0.7 0.7 0.7"
+              >
+    </a-entity>
+
+    <a-entity
+            id="bench"
+            gltf-model="Assets/Bench.gltf"
+            position="-9.6 0 -7"
+            scale="1.3 1.3 1.3"
+            rotation="0 -45 0"
+            shadow="receive: true">
+
+
+            <a-entity
+            id="humanSit1"
+            gltf-model="Assets/ManSit.glb"
+            position="-0.5 0.09 -1.4"
+            scale="0.25 0.25 0.25"
+            rotation="0 -80 0"
+            shadow="cast: true"
+            
+            ></a-entity>
+
+            <a-entity
+            id="humanSit"
+            gltf-model="Assets/ManSit.glb"
+            position="-0.5 0.09 -2.6"
+            scale="0.25 0.25 0.25"
+            rotation="0 -80 0"
+            shadow="cast: true"
+            
+            ></a-entity>
+
+
+            </a-entity>
+
     </a-entity>
   
                 <!--<a-draw-curve curveref="#track1" material="shader: line; color: red;"></a-draw-curve>-->
@@ -218,13 +331,13 @@
 
 
       <!--camera and movement-->
-      <a-entity id="rig" position="25 1.6 0" rotation="0 90 0">
+      <a-entity id="rig" position="10 1.6 0" rotation="0 90 0">
         <a-entity id="camera" camera look-controls wasd-controls>
 
 
 
-          <a-entity position="0 0 -3"
-          geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.14;"
+          <a-entity position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.07w;"
           material="color: black; shader: flat"
           cursor="maxDistance: 30; fuse: true">
   <a-animation begin="click" easing="ease-in" attribute="scale"
@@ -243,12 +356,13 @@
 
 
 
-          <!--<a-text id="score" value="Score" position="-0.2 -0.5 -1" color="red" width="5" anchor="left"></a-text>
+          
           
           <a-entity id='weapon'
                     position = "0 0 -3">
           <a-box color='blue' width='0.25' height= '0.25' depth='3'
-          static-body></a-box>-->
+          visible ="false"
+          static-body></a-box>
 
 
 

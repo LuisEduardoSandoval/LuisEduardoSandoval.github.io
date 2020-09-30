@@ -22,7 +22,7 @@ AFRAME.registerComponent('day-night',{
         if (clicks%2 === 0)
         {
           el.setAttribute('environment',{lightPosition: '-10  -10 -10.2'});
-          boxel.setAttribute('color', 'pink');
+          boxel.setAttribute('color', 'red');
           clicks+=1;
           
         }
@@ -58,22 +58,39 @@ AFRAME.registerComponent('day-night',{
       var data = this.data;
       var el = this.el;
       var CovidBoxel= document.querySelector('#CovidBox');
+      var CovidText=document.querySelector('#covidText');
       var humanel = document.querySelector('#human');
+      var humanel1 = document.querySelector('#human1');
+      
+      var humanel2 = document.querySelector('#humanSit');
+      var humanel3 = document.querySelector('#humanSit1');
       var clicks=0;
       
       CovidBoxel.addEventListener('click',function()
       {
           if(clicks%2 === 0)
           {
-            CovidBoxel.setAttribute('color', 'purple');
+            CovidBoxel.setAttribute('color', 'green');
             humanel.setAttribute('visible', false);
+            humanel1.setAttribute('visible', false);
+
+            humanel2.setAttribute('visible', false);
+            humanel3.setAttribute('visible', false);
+
+            CovidText.setAttribute('value','look again to turn off covid mode');
             clicks+=1;
             
           }
           else
           {
-            CovidBoxel.setAttribute('color', 'orange');
+            CovidBoxel.setAttribute('color', 'red');
             humanel.setAttribute('visible', true);
+            humanel1.setAttribute('visible', true);
+
+
+            humanel2.setAttribute('visible', true);
+            humanel3.setAttribute('visible', true);
+            CovidText.setAttribute('value','look at box for covid mode');
             clicks+=1;
           }
           console.log(clicks);

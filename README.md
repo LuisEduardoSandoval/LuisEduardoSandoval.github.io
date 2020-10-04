@@ -138,6 +138,77 @@ The next ineraction is the covid box which changes the environment by hiding all
   There is a ball that can be interacted with using a physics script and a dynamic body. there is a plane that is hidden to keep the ball from falling through the floor.
   ![](Assets/gifs/lightingexample.gif)
   
+  
+  Animations:
+
+
+The humans move around the scene using a path script there are 3 points positioned on the path.
+![](Assets/gifs/HumanMove.gif)
+They move using a library and this code to create a "track" or path.
+
+``` javascript
+    <a-curve id="track1">
+        <a-curve-point position="25 0 0" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="12 0 10" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="-20 0 0" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+    </a-curve>
+```
+
+I have created crows as the time has been extended which can be found on the right of the path.
+
+Sounds:
+there are 2 sounds implemented using free sounds
+one is a track of a forest on repeat
+and the other is when the button event is triggered
+
+
+references:
+
+Libraries:
+
+Path Script: "https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"
+
+
+for the use of creating a path for models to walk.
+
+
+Environment Handler Script: https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js
+
+
+for the use of button events.
+
+
+Physics Script: //cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js
+
+
+for the use of a ball to be interacted with.
+
+Enviroment Script: https://cdn.jsdelivr.net/gh/supermedium/aframe-environment-component/dist/aframe-environment-component.min.js
+
+
+for the use of the background scenery i.e. small hills and green trees.
+
+Models:
+all models were custom made and can be found in asset folders
+ 
+in the case of murry hall. it went under several revisions as i was not happy with the initial product.
+![](Assets/gifs/modelOfMurryOriginal.png)
+
+I had originally retextured the model twice before i ended up realising the windows were to detailed.
+So I remade the model.
+![](Assets/gifs/modelofMurry.png)
+
+all animations as well were custom made: 
+due to my lack of knowledge in animation and time constraints the animations are rather lack luster but none the less was a fun project to work on. 
+![](Assets/gifs/birds.png)
+![](Assets/gifs/man.png)
+
+Sounds:
+sounds were obtained from bigsoundbank.com
+
+https://bigsoundbank.com/detail-0100-forest.html 
+
+
 
 
 

@@ -2,17 +2,20 @@
 VR project 1 Murry Hall Environment.
 
 
-![](Assets/p1_Sandoval.gif)
+![](Assets/gifs/p1_Sandoval.gif)
 
 
-Interactions
+Interactions:
+
+
+
 there are 2 cubes placed on the podium that can be interacted with the first one is a lighting box that changes the lighting of
 the sky when looked at.
 
-![](Assets/lightingexample.gif)
+![](Assets/gifs/lightingexample.gif)
 
 The lighting cube works by taking the eventlistener library and check for a click(in this case a binding which is basically staring in vr)
-and once this event has happend a timer counts upwards switching between two states.
+and once this event has happend a timer counts upwards switching between two states(red and green) and a sound is played.
 
 ``` javascript 
 AFRAME.registerComponent('day-night',{
@@ -64,9 +67,10 @@ AFRAME.registerComponent('day-night',{
 });
 ```
 
-The next ineraction is the covid box which changes the environment by hiding all the people, this is a depiction of how covid has affected society as people no longer 
-go out and works very simmilaryly to the previous script however this one hides the objects.
+The next ineraction is the covid box which changes the environment by hiding all the people, this is a depiction of how covid has affected society as there are far fewer people on campus. Very simmilarly to the previous script however this one hides the objects.
 
+
+![](Assets/gifs/covidMode.gif)
 ``` javascript
     init: function()
     {
@@ -130,6 +134,9 @@ go out and works very simmilaryly to the previous script however this one hides 
     }
   });
   ```
+  
+  There is a ball that can be interacted with using a physics script and a dynamic body. there is a plane that is hidden to keep the ball from falling through the floor.
+  ![](Assets/gifs/lightingexample.gif)
   
 
 

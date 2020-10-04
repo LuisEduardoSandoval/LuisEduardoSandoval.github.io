@@ -5,16 +5,32 @@ VR project 1 Murry Hall Environment.
 ![](Assets/gifs/p1_Sandoval.gif)
 
 
+
+
+
+
+Controls:
+
+Move using: WASD or Arrowkeys on PC
+mouse to look around
+
+Mobile: move by tapping the screen look down to move back.
+gyroscope to move around
+
+
+
+
+
 Interactions:
 
 
 
-there are 2 cubes placed on the podium that can be interacted with the first one is a lighting box that changes the lighting of
+There are 2 cubes placed on the podium that can be interacted with. The first one is a lighting box that changes the lighting of
 the sky when looked at.
 
 ![](Assets/gifs/lightingexample.gif)
 
-The lighting cube works by taking the eventlistener library and check for a click(in this case a binding which is basically staring in vr)
+The lighting cube works by taking the eventlistener library and check for a click(in this case a binding which is basically looking at in vr)
 and once this event has happend a timer counts upwards switching between two states(red and green) and a sound is played.
 
 ``` javascript 
@@ -67,7 +83,7 @@ AFRAME.registerComponent('day-night',{
 });
 ```
 
-The next ineraction is the covid box which changes the environment by hiding all the people, this is a depiction of how covid has affected society as there are far fewer people on campus. Very simmilarly to the previous script however this one hides the objects.
+The next ineraction is the covid box which changes the environment by hiding all the people. This is a depiction of how covid has affected society as there are far fewer people on campus. Very simmilarly to the previous script however this one hides the objects by obtaining the objects element.
 
 
 ![](Assets/gifs/covidMode.gif)
@@ -135,11 +151,11 @@ The next ineraction is the covid box which changes the environment by hiding all
   });
   ```
   
-  There is a ball that can be interacted with using a physics script and a dynamic body. there is a plane that is hidden to keep the ball from falling through the floor.
+  There is a ball that can be interacted with using a physics library and a setting the ball to a dynamic body. there is a plane that is hidden to keep the ball from falling through the floor.
   ![](Assets/gifs/ball_physics.gif)
   
   
-  Animations:
+ Animations:
 
 
 The humans move around the scene using a path script there are 3 points positioned on the path.
@@ -154,10 +170,12 @@ They move using a library and this code to create a "track" or path.
     </a-curve>
 ```
 
-I have created crows as the time has been extended which can be found on the right of the path.
+I have created crows as the time has been extended which can be found on the right of the path, and i was able to add trees which there are four of.
 
 Sounds:
-there are 2 sounds implemented using free sounds
+
+
+There are 2 sounds implemented using free sounds
 one is a track of a forest on repeat
 and the other is when the button event is triggered
 
@@ -192,10 +210,18 @@ Physics Script: //cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-ex
 
 for the use of a ball to be interacted with.
 
+
 Enviroment Script: https://cdn.jsdelivr.net/gh/supermedium/aframe-environment-component/dist/aframe-environment-component.min.js
 
 
 for the use of the background scenery i.e. small hills and green trees.
+
+
+Mobile Script: https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js
+
+
+for being able to move on mobile.
+
 
 Models and textures:
 all models and textures were custom made and can be found in asset folders

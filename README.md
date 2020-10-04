@@ -136,7 +136,7 @@ The next ineraction is the covid box which changes the environment by hiding all
   ```
   
   There is a ball that can be interacted with using a physics script and a dynamic body. there is a plane that is hidden to keep the ball from falling through the floor.
-  ![](Assets/gifs/lightingexample.gif)
+  ![](Assets/gifs/ball_physics.gif)
   
   
   Animations:
@@ -164,6 +164,15 @@ and the other is when the button event is triggered
 
 references:
 
+https://aframe.io/docs/1.0.0/introduction/ : for the script events
+
+https://blog.mozvr.com/aframe-environment-component/ : for the environment components
+
+https://github.com/protyze/aframe-alongpath-component : for the path component
+
+https://www.youtube.com/channel/UC2U5mRfclG1Rrr1ztNkpGKA : for the animation guide.
+
+
 Libraries:
 
 Path Script: "https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"
@@ -188,8 +197,8 @@ Enviroment Script: https://cdn.jsdelivr.net/gh/supermedium/aframe-environment-co
 
 for the use of the background scenery i.e. small hills and green trees.
 
-Models:
-all models were custom made and can be found in asset folders
+Models and textures:
+all models and textures were custom made and can be found in asset folders
  
 in the case of murry hall. it went under several revisions as i was not happy with the initial product.
 ![](Assets/gifs/modelOfMurryOriginal.png)
@@ -203,12 +212,16 @@ due to my lack of knowledge in animation and time constraints the animations are
 ![](Assets/gifs/birds.png)
 ![](Assets/gifs/man.png)
 
+
+
+
+
 Sounds:
 sounds were obtained from bigsoundbank.com
 
 https://bigsoundbank.com/detail-0100-forest.html 
 
 
-
-
+there was a single soccor ball texture used as i couldn't figure out how to wrap custom made materials around a sphere and was taking too much time
+https://images.designtrends.com/wp-content/uploads/2016/09/17145735/Soccer-ball-Texture1.jpg
 

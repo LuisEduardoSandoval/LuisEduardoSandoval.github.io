@@ -4,6 +4,10 @@ VR project 1 Murry Hall Environment.
 Link to video: https://www.youtube.com/embed/hFfxNg0sPPk
 
 
+
+Link to demo: https://luiseduardosandoval.github.io/
+
+
 ![](Assets/gifs/p1_Sandoval.gif)
 
 Controls:

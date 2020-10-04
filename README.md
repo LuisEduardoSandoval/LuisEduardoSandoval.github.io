@@ -1,13 +1,10 @@
 # LuisEduardoSandoval.github.io
 VR project 1 Murry Hall Environment.
 
+Link to video: https://www.youtube.com/embed/hFfxNg0sPPk
+
 
 ![](Assets/gifs/p1_Sandoval.gif)
-
-
-
-
-
 
 Controls:
 

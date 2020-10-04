@@ -14,7 +14,7 @@ mouse to look around
 Mobile: move by tapping the screen look down to move back.
 gyroscope to move around
 
-
+Note: in the images there is text for lighting this has been removed.
 
 
 

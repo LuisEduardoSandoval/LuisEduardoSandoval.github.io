@@ -14,7 +14,7 @@ mouse to look around
 Mobile: move by tapping the screen look down to move back.
 gyroscope to move around
 
-Note: in the images there is text for lighting this has been removed.
+Note: in the images there is white text for lighting at the bottom of the screen this has been removed. Also shadows have been removed for the frame rate performance.
 
 
 
@@ -222,6 +222,10 @@ for being able to move on mobile.
 
 Models and textures:
 all models and textures were custom made and can be found in asset folders
+ 
+I decided to make low poly figures as it would not lower preformance i attempted to keep poly count low and 
+used pixel art for texture work as this would have the a smaller impact on the engine.
+ 
  
 in the case of murry hall. it went under several revisions as i was not happy with the initial product.
 ![](Assets/gifs/modelOfMurryOriginal.png)

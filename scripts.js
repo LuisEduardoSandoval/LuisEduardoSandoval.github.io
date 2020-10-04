@@ -1,53 +1,51 @@
 
-
-
 AFRAME.registerComponent('day-night',{
-    schema:{
-      position: {default: '0, 0, 0'}
-    },
-    init: function()
+  schema:{
+    position: {default: '0, 0, 0'}
+  },
+  init: function()
+  {
+    var data = this.data;
+    var el = this.el;
+    var boxel= document.querySelector('#box');
+    let sound2 =document.querySelector('#ring');
+    var clicks = 0;
+
+
+
+    //var defaultPosition = el.getAttribute('lightPosition').data;
+
+    boxel.addEventListener('click',function()
     {
-      var data = this.data;
-      var el = this.el;
-      var boxel= document.querySelector('#box');
-      let sound2 =document.querySelector('#ring');
-      var clicks = 0;
-
-
-
-      //var defaultPosition = el.getAttribute('lightPosition').data;
-
-      boxel.addEventListener('click',function()
-      {
-        
-
-
-        if (clicks%2 === 0)
-        {
-          el.setAttribute('environment',{lightPosition: '-10  -10 -10.2'});
-          boxel.setAttribute('color', 'red');
-          sound2.components.sound.playSound();
-          clicks+=1;
-          
-        }
-        else
-        {
-          el.setAttribute('environment',{lightPosition: '0  -1 0.2'});
-          boxel.setAttribute('color', 'green');
-          sound2.components.sound.playSound();
-          clicks+=1;
-        }
-
-        
-        console.log(el.getAttribute('environment','skyColor'));
-
-      });
-       //working
-      //console.log(el.getAttribute('enviorment', 'lightPosition'));
       
 
-    }
-  });
+
+      if (clicks%2 === 0)
+      {
+        el.setAttribute('environment',{lightPosition: '-10  -10 -10.2'});
+        boxel.setAttribute('color', 'green');
+        sound2.components.sound.playSound();
+        clicks+=1;
+        
+      }
+      else
+      {
+        el.setAttribute('environment',{lightPosition: '0  -1 0.2'});
+        boxel.setAttribute('color', 'red');
+        sound2.components.sound.playSound();
+        clicks+=1;
+      }
+
+      
+      console.log(el.getAttribute('environment','skyColor'));
+
+    });
+     //working
+    //console.log(el.getAttribute('enviorment', 'lightPosition'));
+    
+
+  }
+});
 
 
 
@@ -158,9 +156,3 @@ AFRAME.registerComponent('day-night',{
   });
 
 
-
-
-
-
-  
-  
